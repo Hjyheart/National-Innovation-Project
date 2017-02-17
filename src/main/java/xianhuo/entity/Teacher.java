@@ -32,13 +32,25 @@ public class Teacher {
     @OneToMany(cascade = CascadeType.ALL)
     private List<Mail> mMail;
 
-    public Teacher(String mPassword, String mName, String mMajor, String mContact, String mHeadUrl, List<Mail> mMail) {
+    @OneToMany(mappedBy = "mHostTeacher")
+    private List<Club> mClub;
+
+    public Teacher(){}
+
+    public Teacher(String mPassword, String mName, String mMajor, String mContact, String mHeadUrl) {
         this.mPassword = mPassword;
         this.mName = mName;
         this.mMajor = mMajor;
         this.mContact = mContact;
         this.mHeadUrl = mHeadUrl;
-        this.mMail = mMail;
+    }
+
+    public List<Club> getmClub() {
+        return mClub;
+    }
+
+    public void setmClub(List<Club> mClub) {
+        this.mClub = mClub;
     }
 
     public Long getmId() {

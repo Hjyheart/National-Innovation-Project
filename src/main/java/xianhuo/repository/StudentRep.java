@@ -3,7 +3,6 @@ package xianhuo.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import xianhuo.entity.Student;
 
@@ -14,6 +13,11 @@ import java.util.List;
  */
 @Repository
 public interface StudentRep extends JpaRepository<Student, String>, JpaSpecificationExecutor<Student> {
-    @Query("select stu from student stu where stu.mName = :stuName")
-    public List<Student> findByStuName(@Param("stuName") String name);
+
+    List<Student> findByMName(String name);
+    List<Student> findByMId(String Id);
+
+    @Query("select s from student s where s.mName like ?1%")
+    List<Student> findByLikeName(String likeName);
+
 }

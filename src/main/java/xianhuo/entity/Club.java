@@ -23,16 +23,41 @@ public class Club {
     @ManyToOne
     private Student mHostStudent;
 
+    @ManyToOne
+    private Teacher mHostTeacher;
+
     @OneToMany(mappedBy = "mClub")
     private List<Activity> mActivities;
 
     @OneToMany(mappedBy = "mClub")
     private List<File> mFiles;
 
-    public Club(String mName, List<Student> mStudents, Student mHostStudent) {
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Comment> mComments;
+
+    public Club(){}
+
+    public Club(String mName, List<Student> mStudents, Student mHostStudent, Teacher mHostTeacher) {
         this.mName = mName;
         this.mStudents = mStudents;
         this.mHostStudent = mHostStudent;
+        this.mHostTeacher = mHostTeacher;
+    }
+
+    public Teacher getmHostTeacher() {
+        return mHostTeacher;
+    }
+
+    public void setmHostTeacher(Teacher mHostTeacher) {
+        this.mHostTeacher = mHostTeacher;
+    }
+
+    public List<Comment> getmComments() {
+        return mComments;
+    }
+
+    public void setmComments(List<Comment> mComments) {
+        this.mComments = mComments;
     }
 
     public List<File> getmFiles() {
@@ -59,7 +84,6 @@ public class Club {
         this.mHostStudent = mHostStudent;
     }
 
-
     public Long getmId() {
         return mId;
     }
@@ -75,7 +99,6 @@ public class Club {
     public void setmName(String mName) {
         this.mName = mName;
     }
-
 
     public List<Student> getmStudents() {
         return mStudents;

@@ -43,6 +43,8 @@ public class Student {
     @ManyToMany(mappedBy = "mStudents")
     private List<Activity> mActivities;
 
+    public Student(){}
+
     public Student(String mId, String mPassword, String mName, Integer mGrade, String mMajor, String mContact) {
         this.mId = mId;
         this.mPassword = mPassword;

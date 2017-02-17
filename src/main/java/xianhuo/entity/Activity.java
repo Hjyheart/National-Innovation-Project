@@ -39,6 +39,9 @@ public class Activity {
     @ManyToMany
     private List<Student> mStudents;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Comment> mComments;
+
     public Activity(String mName, String mLocation, Date mDate, Integer mState, String mContent, String mImgUrl) {
         this.mName = mName;
         this.mLocation = mLocation;
@@ -46,6 +49,14 @@ public class Activity {
         this.mState = mState;
         this.mContent = mContent;
         this.mImgUrl = mImgUrl;
+    }
+
+    public List<Comment> getmComments() {
+        return mComments;
+    }
+
+    public void setmComments(List<Comment> mComments) {
+        this.mComments = mComments;
     }
 
     public Long getmId() {
