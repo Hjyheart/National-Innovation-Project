@@ -5,15 +5,13 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import xianhuo.entity.Student;
-
-import java.util.List;
+import xianhuo.entity.Teacher;
 
 /**
- * Created by hongjiayong on 2017/2/13.
+ * Created by hongjiayong on 2017/2/17.
  */
 @Repository
-public interface StudentRep extends JpaRepository<Student, String>, JpaSpecificationExecutor<Student> {
-    @Query("select stu from student stu where stu.mName = :stuName")
-    public List<Student> findByStuName(@Param("stuName") String name);
+public interface TeacherRep extends JpaRepository<Teacher, Long>, JpaSpecificationExecutor<Teacher> {
+    @Query("select s from teacher s where s.mName = :teaName")
+    public Teacher findBymName(@Param("teaName")String name);
 }
