@@ -1,6 +1,7 @@
 package xianhuo.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,16 +33,16 @@ public class Student {
     private String mHeadUrl;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private List<Mail> mMails;
+    private List<Mail> mMails = new ArrayList<>();
 
     @OneToMany(mappedBy = "mHostStudent")
-    private List<Club> mHostClubs;
+    private List<Club> mHostClubs = new ArrayList<>();
 
     @ManyToMany(mappedBy = "mStudents")
-    private List<Club> mInClubs;
+    private List<Club> mInClubs = new ArrayList<>();
 
     @ManyToMany(mappedBy = "mStudents")
-    private List<Activity> mActivities;
+    private List<Activity> mActivities = new ArrayList<>();
 
     public Student(){}
 

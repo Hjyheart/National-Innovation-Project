@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface StudentService {
 
-    void save(Student student);
+    boolean save(Student student);
 
     List<Student> findByMName(String name);
 

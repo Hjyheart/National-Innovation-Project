@@ -1,6 +1,7 @@
 package xianhuo.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,19 +28,18 @@ public class Club {
     private Teacher mHostTeacher;
 
     @OneToMany(mappedBy = "mClub")
-    private List<Activity> mActivities;
+    private List<Activity> mActivities = new ArrayList<>();
 
-    @OneToMany(mappedBy = "mClub")
-    private List<File> mFiles;
+    @OneToMany(mappedBy = "mClub", cascade = CascadeType.ALL)
+    private List<File> mFiles = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL)
-    private List<Comment> mComments;
+    private List<Comment> mComments = new ArrayList<>();
 
     public Club(){}
 
-    public Club(String mName, List<Student> mStudents, Student mHostStudent, Teacher mHostTeacher) {
+    public Club(String mName, Student mHostStudent, Teacher mHostTeacher) {
         this.mName = mName;
-        this.mStudents = mStudents;
         this.mHostStudent = mHostStudent;
         this.mHostTeacher = mHostTeacher;
     }

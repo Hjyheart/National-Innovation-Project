@@ -1,6 +1,7 @@
 package xianhuo.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -37,18 +38,20 @@ public class Activity {
     private Club mClub;
 
     @ManyToMany
-    private List<Student> mStudents;
+    private List<Student> mStudents = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL)
-    private List<Comment> mComments;
+    private List<Comment> mComments = new ArrayList<>();
 
-    public Activity(String mName, String mLocation, Date mDate, Integer mState, String mContent, String mImgUrl) {
+    public Activity(){}
+
+    public Activity(String mName, String mLocation, Date mDate, Integer mState, String mContent, Club mClub) {
         this.mName = mName;
         this.mLocation = mLocation;
         this.mDate = mDate;
         this.mState = mState;
         this.mContent = mContent;
-        this.mImgUrl = mImgUrl;
+        this.mClub = mClub;
     }
 
     public List<Comment> getmComments() {

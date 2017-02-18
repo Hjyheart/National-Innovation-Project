@@ -7,6 +7,7 @@ import xianhuo.entity.Teacher;
 import xianhuo.repository.TeacherRep;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 /**
  * Created by hongjiayong on 2017/2/17.
@@ -17,26 +18,30 @@ public class TeacherServiceImp implements TeacherService {
     private TeacherRep teacherRep;
 
     @Override
-    public void save(Teacher teacher) {
-        teacherRep.save(teacher);
+    public boolean save(Teacher teacher) {
+        try {
+            Teacher tea = teacherRep.findByMName(teacher.getmName()).iterator().next();
+        }catch (NoSuchElementException e){
+            teacherRep.save(teacher);
+            return true;
+        }
+        return false;
     }
 
     @Override
     public Teacher findByMName(String name) {
-        return teacherRep.findByMName(name).iterator().next();
+        try {
+            return teacherRep.findByMName(name).iterator().next();
+        }catch (NoSuchElementException e){
+            return null;
+        }
     }
 
     @Override
     public List<Teacher> findByLikeName(String likeName) {
-        return teacherRep.findByLikeName(likeName);
-    }
-
-    @Override
-    public List<Club> getClubByTeacherName(String name) {
-        Teacher teacher = teacherRep.findByMName(name).iterator().next();
-        if (teacher != null){
-            return teacher.getmClub();
-        }else{
+        try {
+            return teacherRep.findByLikeName(likeName);
+        }catch (NoSuchElementException e){
             return null;
         }
     }

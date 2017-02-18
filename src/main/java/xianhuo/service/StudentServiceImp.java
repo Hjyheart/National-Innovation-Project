@@ -6,6 +6,7 @@ import xianhuo.entity.Student;
 import xianhuo.repository.StudentRep;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 /**
  * Created by hongjiayong on 2017/2/17.
@@ -16,23 +17,41 @@ public class StudentServiceImp implements StudentService {
     private StudentRep studentRep;
 
     @Override
-    public void save(Student student) {
-        studentRep.save(student);
+    public boolean save(Student student) {
+        try {
+            Student stu = studentRep.findByMId(student.getmId()).iterator().next();
+        }catch (NoSuchElementException e){
+            studentRep.save(student);
+            return true;
+        }
+        return false;
     }
 
     @Override
     public List<Student> findByMName(String name) {
-        return studentRep.findByMName(name);
+        try {
+            return studentRep.findByMName(name);
+        }catch (NoSuchElementException e){
+            return null;
+        }
     }
 
     @Override
     public Student findByMId(String id) {
-        return studentRep.findByMId(id).iterator().next();
+        try {
+            return studentRep.findByMId(id).iterator().next();
+        }catch (NoSuchElementException e){
+            return null;
+        }
     }
 
     @Override
     public List<Student> findByLikeName(String name) {
-        return studentRep.findByLikeName(name);
+        try {
+            return studentRep.findByLikeName(name);
+        }catch (NoSuchElementException e){
+            return null;
+        }
     }
 
 }

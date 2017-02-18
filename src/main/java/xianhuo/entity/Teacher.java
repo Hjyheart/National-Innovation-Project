@@ -1,6 +1,7 @@
 package xianhuo.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,10 +31,10 @@ public class Teacher {
     private String mHeadUrl;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private List<Mail> mMail;
+    private List<Mail> mMail = new ArrayList<>();
 
     @OneToMany(mappedBy = "mHostTeacher")
-    private List<Club> mClub;
+    private List<Club> mClub = new ArrayList<>();
 
     public Teacher(){}
 
