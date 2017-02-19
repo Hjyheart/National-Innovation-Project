@@ -7,9 +7,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import xianhuo.entity.Activity;
 import xianhuo.entity.Club;
+import xianhuo.entity.Student;
 import xianhuo.entity.Teacher;
 import xianhuo.service.*;
 
+import javax.transaction.Transactional;
 import java.io.IOException;
 import java.time.Instant;
 import java.util.Date;
@@ -41,17 +43,19 @@ public class XianhuoApplicationTests {
 
 	@Test
 	public void loginTest() throws IOException {
-		assertEquals(true, loginServiceImp.Login("1452822", "hjy673773"));
-		assertEquals(true, loginServiceImp.Login("1552651", "TJDX4869"));
-		assertEquals(false, loginServiceImp.Login("1452822", "jy673773"));
-		assertEquals(false, loginServiceImp.Login("145282", "hjy673773"));
+		assertEquals(true, loginServiceImp.login("1452822", "hjy673773"));
+		assertEquals(true, loginServiceImp.login("1552651", "TJDX4869"));
+		assertEquals(false, loginServiceImp.login("1452822", "jy673773"));
+		assertEquals(false, loginServiceImp.login("145282", "hjy673773"));
 	}
 
 	@Test
+	@Transactional
 	public void studentTest(){
-		assertEquals(false, studentServiceImp.save(studentServiceImp.findByMId("1452822")));
-		assertEquals("洪嘉勇",studentServiceImp.findByMName("洪嘉勇").iterator().next().getmName());
-		assertEquals("洪嘉勇", studentServiceImp.findByLikeName("洪").iterator().next().getmName());
+		Student stu = studentServiceImp.findByMId("1452822");
+		stu.setmName("洪嘉勇");
+		studentServiceImp.save(stu);
+		assertEquals("洪嘉勇", studentServiceImp.findByMId("1452822").getmName());
 	}
 
 	@Test

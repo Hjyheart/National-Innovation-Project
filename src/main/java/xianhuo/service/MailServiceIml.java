@@ -13,7 +13,6 @@ public class MailServiceIml implements MailService{
     @Autowired
     MailRep mailRep;
 
-
     @Override
     public void save(Mail mail) {
         mailRep.save(mail);

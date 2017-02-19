@@ -26,7 +26,7 @@ public class LoginServiceImp implements LoginService {
     private static String RESULT = "https://ids.tongji.edu.cn:8443/nidp/saml2/sso?sid=0&sid=0";
 
     @Override
-    public boolean Login(String id, String password) throws IOException {
+    public boolean login(String id, String password) throws IOException {
         data.put("option", "credential");
         data.put("Ecom_User_ID", id);
         data.put("Ecom_Password", password);

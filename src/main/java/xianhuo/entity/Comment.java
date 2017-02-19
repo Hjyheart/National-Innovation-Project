@@ -1,5 +1,7 @@
 package xianhuo.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -20,6 +22,7 @@ public class Comment {
     @Column(nullable = false, name = "DATE")
     private Date mDate;
 
+    // 0 -> club 1 -> activity
     @Column(nullable = false, name = "TYPE")
     private Integer mType;
 
@@ -28,6 +31,8 @@ public class Comment {
 
     @ManyToOne
     private Student mStudent;
+
+    public Comment(){}
 
     public Comment(String mContent, Date mDate, Integer mType, Long mTarget, Student mStudent) {
         this.mContent = mContent;
@@ -77,6 +82,7 @@ public class Comment {
         this.mTarget = mTarget;
     }
 
+    @JsonBackReference
     public Student getmStudent() {
         return mStudent;
     }

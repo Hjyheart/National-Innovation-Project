@@ -17,7 +17,7 @@ public class Student {
     @Column(nullable = false,name = "PASSWORD")
     private String mPassword;
 
-    @Column(nullable = false, name = "NAME")
+    @Column(nullable = true, name = "NAME")
     private String mName;
 
     @Column(nullable = true, name = "GRADE")
@@ -35,6 +35,9 @@ public class Student {
     @OneToMany(cascade = CascadeType.ALL)
     private List<Mail> mMails = new ArrayList<>();
 
+    @OneToMany(mappedBy = "mStudent", cascade = CascadeType.ALL)
+    private List<Comment> mComments = new ArrayList<>();
+
     @OneToMany(mappedBy = "mHostStudent")
     private List<Club> mHostClubs = new ArrayList<>();
 
@@ -44,15 +47,20 @@ public class Student {
     @ManyToMany(mappedBy = "mStudents")
     private List<Activity> mActivities = new ArrayList<>();
 
+
     public Student(){}
 
-    public Student(String mId, String mPassword, String mName, Integer mGrade, String mMajor, String mContact) {
+    public Student(String mId, String mPassword) {
         this.mId = mId;
         this.mPassword = mPassword;
-        this.mName = mName;
-        this.mGrade = mGrade;
-        this.mMajor = mMajor;
-        this.mContact = mContact;
+    }
+
+    public List<Comment> getmComments() {
+        return mComments;
+    }
+
+    public void setmComments(List<Comment> mComments) {
+        this.mComments = mComments;
     }
 
     public List<Activity> getmActivities() {

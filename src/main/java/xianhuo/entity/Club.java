@@ -1,5 +1,7 @@
 package xianhuo.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +46,7 @@ public class Club {
         this.mHostTeacher = mHostTeacher;
     }
 
+    @JsonBackReference
     public Teacher getmHostTeacher() {
         return mHostTeacher;
     }
@@ -76,6 +79,7 @@ public class Club {
         this.mActivities = mActivities;
     }
 
+    @JsonBackReference
     public Student getmHostStudent() {
         return mHostStudent;
     }
@@ -100,6 +104,7 @@ public class Club {
         this.mName = mName;
     }
 
+    @JsonBackReference
     public List<Student> getmStudents() {
         return mStudents;
     }

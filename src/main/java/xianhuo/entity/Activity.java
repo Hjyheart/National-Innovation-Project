@@ -1,5 +1,7 @@
 package xianhuo.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -118,6 +120,7 @@ public class Activity {
         this.mImgUrl = mImgUrl;
     }
 
+    @JsonBackReference
     public Club getmClub() {
         return mClub;
     }
@@ -126,6 +129,7 @@ public class Activity {
         this.mClub = mClub;
     }
 
+    @JsonBackReference
     public List<Student> getmStudents() {
         return mStudents;
     }

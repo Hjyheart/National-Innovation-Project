@@ -9,5 +9,5 @@ import java.io.IOException;
  */
 @Service
 public interface LoginService {
-    boolean Login(String id, String password) throws IOException;
+    boolean login(String id, String password) throws IOException;
 }
