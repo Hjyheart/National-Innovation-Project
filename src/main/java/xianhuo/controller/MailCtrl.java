@@ -5,16 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import xianhuo.entity.Activity;
-import xianhuo.entity.Club;
-import xianhuo.entity.Mail;
-import xianhuo.entity.Student;
-import xianhuo.service.ActivityServiceImp;
-import xianhuo.service.ClubServiceImp;
-import xianhuo.service.MailServiceIml;
-import xianhuo.service.StudentServiceImp;
+import xianhuo.entity.*;
+import xianhuo.service.*;
 
 import javax.transaction.Transactional;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -34,6 +29,9 @@ public class MailCtrl {
 
     @Autowired
     private ClubServiceImp clubServiceImp;
+
+    @Autowired
+    private TeacherServiceImp teacherServiceImp;
 
     /**
      * 获取邮件
@@ -72,6 +70,14 @@ public class MailCtrl {
                 for (Club club : student.getmHostClubs()){
                     if (activity.getmClub().equals(club)){
                         activity.setmState(activityServiceImp.PASSED);
+
+                        Mail mailBack = new Mail(mailServiceIml.APPLY_ACT_SUCCESS, mail.getmReceiver(), mail.getmSender(),
+                                mail.getmContent(), new Date(), mailServiceIml.UNDEAL);
+                        mailServiceIml.save(mail);
+
+                        student.getmMails().add(mailBack);
+
+                        studentServiceImp.save(student);
                         activityServiceImp.save(activity);
                         mailServiceIml.save(mail);
                         return true;
@@ -104,7 +110,16 @@ public class MailCtrl {
             for (Activity activity : activities){
                 for (Club club : student.getmHostClubs()){
                     if (activity.getmClub().equals(club)){
+
                         activity.setmState(activityServiceImp.REFUSED);
+
+                        Mail mailBack = new Mail(mailServiceIml.APPLY_ACT_FAILD, mail.getmReceiver(), mail.getmSender(),
+                                mail.getmContent(), new Date(), mailServiceIml.UNDEAL);
+                        mailServiceIml.save(mail);
+
+                        student.getmMails().add(mailBack);
+
+                        studentServiceImp.save(student);
                         activityServiceImp.save(activity);
                         mailServiceIml.save(mail);
                         return true;
@@ -135,6 +150,13 @@ public class MailCtrl {
             Club club = clubServiceImp.findByMName(mail.getmContent());
             club.setmState(clubServiceImp.PASSED);
 
+            Mail mailBack = new Mail(MailServiceIml.APPLY_CLUB_SUCCESS, mail.getmReceiver(), mail.getmSender(),
+                    mail.getmContent(), new Date(), mailServiceIml.UNDEAL);
+            mailServiceIml.save(mailBack);
+
+            student.getmMails().add(mailBack);
+
+            studentServiceImp.save(student);
             clubServiceImp.save(club);
             mailServiceIml.save(mail);
 
@@ -161,8 +183,15 @@ public class MailCtrl {
             Student student = studentServiceImp.findByMId(mail.getmSender());
 
             Club club = clubServiceImp.findByMName(mail.getmContent());
-            //TODO: 回执
+
+            Mail mailBack = new Mail(mailServiceIml.APPLY_CLUB_FAILD, mail.getmReceiver(), mail.getmSender(),
+                    mail.getmContent(), new Date(), mailServiceIml.UNDEAL);
+            mailServiceIml.save(mail);
+
+            student.getmMails().add(mailBack);
+
             clubServiceImp.delete(club);
+            studentServiceImp.save(student);
             mailServiceIml.save(mail);
 
             return true;

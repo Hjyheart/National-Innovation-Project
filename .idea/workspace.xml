@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4329a200-bbcd-49da-97bd-638cff5652bd" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/xianhuo/XianhuoApplicationTests.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xianhuo/controller/ActivityCtrl.java" afterPath="$PROJECT_DIR$/src/main/java/xianhuo/controller/ActivityCtrl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xianhuo/controller/ClubCtrl.java" afterPath="$PROJECT_DIR$/src/main/java/xianhuo/controller/ClubCtrl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xianhuo/controller/RegisterCtrl.java" afterPath="$PROJECT_DIR$/src/main/java/xianhuo/controller/RegisterCtrl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xianhuo/controller/StudentCtrl.java" afterPath="$PROJECT_DIR$/src/main/java/xianhuo/controller/StudentCtrl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xianhuo/entity/Mail.java" afterPath="$PROJECT_DIR$/src/main/java/xianhuo/entity/Mail.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xianhuo/entity/Student.java" afterPath="$PROJECT_DIR$/src/main/java/xianhuo/entity/Student.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xianhuo/entity/Teacher.java" afterPath="$PROJECT_DIR$/src/main/java/xianhuo/entity/Teacher.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xianhuo/repository/MailRep.java" afterPath="$PROJECT_DIR$/src/main/java/xianhuo/repository/MailRep.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xianhuo/service/ClubServiceImp.java" afterPath="$PROJECT_DIR$/src/main/java/xianhuo/service/ClubServiceImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xianhuo/service/MailService.java" afterPath="$PROJECT_DIR$/src/main/java/xianhuo/service/MailService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xianhuo/controller/MailCtrl.java" afterPath="$PROJECT_DIR$/src/main/java/xianhuo/controller/MailCtrl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xianhuo/service/MailServiceIml.java" afterPath="$PROJECT_DIR$/src/main/java/xianhuo/service/MailServiceIml.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/xianhuo/XianhuoApplicationTests.java" afterPath="$PROJECT_DIR$/src/test/java/xianhuo/XianhuoApplicationTests.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,8 +46,8 @@
       <file leaf-file-name="MailCtrl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/xianhuo/controller/MailCtrl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
-              <caret line="150" column="11" lean-forward="false" selection-start-line="150" selection-start-column="11" selection-end-line="150" selection-end-column="11" />
+            <state relative-caret-position="499">
+              <caret line="79" column="56" lean-forward="false" selection-start-line="79" selection-start-column="56" selection-end-line="79" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -119,8 +107,8 @@
       <file leaf-file-name="MailServiceIml.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/xianhuo/service/MailServiceIml.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="90" column="31" lean-forward="true" selection-start-line="90" selection-start-column="31" selection-end-line="90" selection-end-column="31" />
+            <state relative-caret-position="-495">
+              <caret line="36" column="48" lean-forward="false" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -218,8 +206,8 @@
         <option value="$PROJECT_DIR$/src/main/java/xianhuo/controller/ActivityCtrl.java" />
         <option value="$PROJECT_DIR$/src/main/java/xianhuo/controller/ClubCtrl.java" />
         <option value="$PROJECT_DIR$/src/main/java/xianhuo/controller/StudentCtrl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/xianhuo/service/MailServiceIml.java" />
         <option value="$PROJECT_DIR$/src/main/java/xianhuo/service/ClubServiceImp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/xianhuo/service/MailServiceIml.java" />
         <option value="$PROJECT_DIR$/src/main/java/xianhuo/controller/MailCtrl.java" />
       </list>
     </option>
@@ -1028,7 +1016,7 @@
       <workItem from="1487430096646" duration="5522000" />
       <workItem from="1487493349574" duration="29000" />
       <workItem from="1487493432922" duration="5424000" />
-      <workItem from="1487565228733" duration="13599000" />
+      <workItem from="1487565228733" duration="14955000" />
     </task>
     <servers />
   </component>
@@ -1065,7 +1053,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31425000" />
+    <option name="totallyTimeSpent" value="32781000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1098,7 +1086,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861635" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32739726" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32739726" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20821919" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22374798" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1220,7 +1208,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1230,7 +1218,7 @@
         <state relative-caret-position="330">
           <caret line="33" column="24" lean-forward="false" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1443,7 +1431,7 @@
         <state relative-caret-position="270">
           <caret line="24" column="24" lean-forward="false" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1541,7 +1529,7 @@
         <state relative-caret-position="-1084">
           <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1560,16 +1548,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1050">
           <caret line="70" column="41" lean-forward="true" selection-start-line="70" selection-start-column="41" selection-end-line="70" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xianhuo/service/MailServiceIml.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="90" column="31" lean-forward="true" selection-start-line="90" selection-start-column="31" selection-end-line="90" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1637,10 +1615,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xianhuo/service/MailServiceIml.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-495">
+          <caret line="36" column="48" lean-forward="false" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/xianhuo/controller/MailCtrl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="150" column="11" lean-forward="false" selection-start-line="150" selection-start-column="11" selection-end-line="150" selection-end-column="11" />
+        <state relative-caret-position="499">
+          <caret line="79" column="56" lean-forward="false" selection-start-line="79" selection-start-column="56" selection-end-line="79" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

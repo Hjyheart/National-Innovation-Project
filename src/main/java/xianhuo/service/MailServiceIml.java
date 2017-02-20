@@ -30,7 +30,11 @@ public class MailServiceIml implements MailService{
     TeacherRep teacherRep;
 
     public static Integer APPLY_ACT = 1;
+    public static Integer APPLY_ACT_SUCCESS = 100;
+    public static Integer APPLY_ACT_FAILD = -1;
     public static Integer APPLY_CLUB = 2;
+    public static Integer APPLY_CLUB_SUCCESS = 200;
+    public static Integer APPLY_CLUB_FAILD = -2;
     public static Integer CLUB_STU = 3;
     public static Integer ACT_STU = 4;
     public static boolean UNDEAL = false;
