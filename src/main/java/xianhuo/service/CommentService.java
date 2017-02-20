@@ -7,4 +7,8 @@ import xianhuo.entity.Comment;
  */
 public interface CommentService {
     void save(Comment comment);
+
+    void delete(Comment comment);
+
+    Comment findByMId(Long id);
 }

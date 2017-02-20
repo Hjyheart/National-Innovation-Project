@@ -117,6 +117,17 @@ public class XianhuoApplicationTests {
 	}
 
 	@Test
+	public void commentActivityTest(){
+		assertEquals("test", activityServiceImp.findByMName("编程一小时").iterator().next().getmComments().iterator().next().getmContent());
+	}
+
+	@Test
+	public void commentClubTest(){
+		assertEquals("test1", clubServiceImp.findByMName("苹果俱乐部").getmComments().iterator().next().getmContent());
+	}
+
+
+	@Test
 	public void clubAndActivityTest(){
 		Club club = clubServiceImp.findByMName("小红俱乐部");
 		assertEquals("编程一小时", club.getmActivities().iterator().next().getmName());
