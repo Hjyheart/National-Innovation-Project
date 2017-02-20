@@ -13,6 +13,12 @@ import java.util.NoSuchElementException;
  */
 @Service
 public class ActivityServiceImp implements ActivityService {
+    public static Integer UNAPPLIED = 0;
+
+    public static Integer PASSED = 1;
+
+    public static Integer REFUSED = -1;
+
     @Autowired
     private ActivityRep activityRep;
 

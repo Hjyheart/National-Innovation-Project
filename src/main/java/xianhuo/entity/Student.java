@@ -32,21 +32,20 @@ public class Student {
     @Column(nullable = true, name = "HEADIMG")
     private String mHeadUrl;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.REMOVE)
     private List<Mail> mMails = new ArrayList<>();
 
     @OneToMany(mappedBy = "mStudent", cascade = CascadeType.ALL)
     private List<Comment> mComments = new ArrayList<>();
 
-    @OneToMany(mappedBy = "mHostStudent")
+    @OneToMany(mappedBy = "mHostStudent", cascade = CascadeType.ALL)
     private List<Club> mHostClubs = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "mStudents")
+    @ManyToMany(mappedBy = "mStudents", cascade = CascadeType.ALL)
     private List<Club> mInClubs = new ArrayList<>();
 
     @ManyToMany(mappedBy = "mStudents")
     private List<Activity> mActivities = new ArrayList<>();
-
 
     public Student(){}
 

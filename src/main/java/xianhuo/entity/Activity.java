@@ -30,7 +30,7 @@ public class Activity {
     @Column(nullable = false, name = "STATE")
     private Integer mState;
 
-    @Column(nullable = true, name = "CONTENT")
+    @Column(nullable = true, name = "CONTENT", length = 2048)
     private String mContent;
 
     @Column(nullable = true, name = "IMGURL")

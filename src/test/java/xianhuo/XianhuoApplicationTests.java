@@ -68,7 +68,7 @@ public class XianhuoApplicationTests {
 
 	@Test
 	public void clubTest(){
-		Club club = new Club("小王俱乐部", studentServiceImp.findByMId("1452822"), teacherServiceImp.findByMName("朱宏明"));
+//		Club club = new Club("小王俱乐部", studentServiceImp.findByMId("1452822"), teacherServiceImp.findByMName("朱宏明"));
 //		clubServiceImp.save(club);
 //		assertEquals("洪嘉勇", clubServiceImp.findByMName("小红俱乐部").getmHostStudent().getmName());
 //		assertEquals("朱宏明", clubServiceImp.findByLikeName("小红").iterator().next().getmHostTeacher().getmName());
@@ -79,6 +79,24 @@ public class XianhuoApplicationTests {
 	}
 
 	@Test
+	public void clubCreateTest(){
+		assertEquals("奇迹", studentServiceImp.findByMId("1452822").getmHostClubs().iterator().next().getmName());
+	}
+
+	@Test
+	public void clubDeleteTest(){
+		Club club = clubServiceImp.findByMName("奇迹");
+		clubServiceImp.delete(club);
+		assertEquals(null, clubServiceImp.findByMName("奇迹"));
+	}
+
+	@Test
+	public void clubAddStuTest(){
+		assertEquals("奇迹", studentServiceImp.findByMId("1552651").getmInClubs().iterator().next().getmName());
+		assertEquals("王依睿", clubServiceImp.findByMName("奇迹").getmStudents().iterator().next().getmName());
+	}
+
+	@Test
 	public void activityTest(){
 		Activity activity = new Activity("编程一小时", "济事楼", Date.from(Instant.now()), 0,"test", clubServiceImp.findByMName("小红俱乐部"));
 		Club club = clubServiceImp.findByMName("小红俱乐部");
@@ -86,6 +104,13 @@ public class XianhuoApplicationTests {
 		clubServiceImp.save(club);
 		activityServiceImp.save(activity);
 //		assertEquals("编程一小时", club.getmActivities().iterator().next().getmName());
+	}
+
+	@Test
+	public void activityCreateTest(){
+		Club club = clubServiceImp.findByMName("奇迹");
+		assertEquals(0, club.getmActivities().size());
+
 	}
 
 	@Test

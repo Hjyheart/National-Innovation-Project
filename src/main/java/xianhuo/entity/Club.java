@@ -20,6 +20,9 @@ public class Club {
     @Column(nullable = false, name = "NAME")
     private String mName;
 
+    @Column(nullable = false, name = "STATE")
+    private boolean mState;
+
     @ManyToMany
     private List<Student> mStudents;
 
@@ -29,7 +32,7 @@ public class Club {
     @ManyToOne
     private Teacher mHostTeacher;
 
-    @OneToMany(mappedBy = "mClub")
+    @OneToMany(mappedBy = "mClub", cascade = CascadeType.ALL)
     private List<Activity> mActivities = new ArrayList<>();
 
     @OneToMany(mappedBy = "mClub", cascade = CascadeType.ALL)
@@ -40,15 +43,24 @@ public class Club {
 
     public Club(){}
 
-    public Club(String mName, Student mHostStudent, Teacher mHostTeacher) {
+    public Club(String mName, Student mHostStudent, Teacher mHostTeacher, boolean mState) {
         this.mName = mName;
         this.mHostStudent = mHostStudent;
         this.mHostTeacher = mHostTeacher;
+        this.mState = mState;
     }
 
     @JsonBackReference
     public Teacher getmHostTeacher() {
         return mHostTeacher;
+    }
+
+    public boolean ismState() {
+        return mState;
+    }
+
+    public void setmState(boolean mState) {
+        this.mState = mState;
     }
 
     public void setmHostTeacher(Teacher mHostTeacher) {
