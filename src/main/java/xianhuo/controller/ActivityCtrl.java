@@ -11,6 +11,7 @@ import xianhuo.entity.Club;
 import xianhuo.entity.Student;
 import xianhuo.service.ActivityServiceImp;
 import xianhuo.service.ClubServiceImp;
+import xianhuo.service.MailServiceIml;
 import xianhuo.service.StudentServiceImp;
 
 import javax.transaction.Transactional;
@@ -31,6 +32,9 @@ public class ActivityCtrl {
 
     @Autowired
     private StudentServiceImp studentServiceImp;
+
+    @Autowired
+    private MailServiceIml mailServiceIml;
 
     /**
      * 返回活动详情
@@ -76,6 +80,9 @@ public class ActivityCtrl {
         if (club != null){
             try {
                 Activity activity = new Activity(name, location, ft.parse(time), activityServiceImp.UNAPPLIED, content, club);
+                if (!mailServiceIml.createMailForAct(activity)){
+                    return false;
+                }
                 activityServiceImp.save(activity);
                 return true;
             }catch (Exception e){

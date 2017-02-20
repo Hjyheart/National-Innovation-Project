@@ -38,12 +38,11 @@ public class Teacher {
 
     public Teacher(){}
 
-    public Teacher(String mPassword, String mName, String mMajor, String mContact, String mHeadUrl) {
+    public Teacher(String mPassword, String mName, String mMajor, String mContact) {
         this.mPassword = mPassword;
         this.mName = mName;
         this.mMajor = mMajor;
         this.mContact = mContact;
-        this.mHeadUrl = mHeadUrl;
     }
 
     public List<Club> getmClub() {

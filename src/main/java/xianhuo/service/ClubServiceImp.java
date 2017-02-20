@@ -16,6 +16,9 @@ public class ClubServiceImp implements ClubService {
     @Autowired
     private ClubRep clubRep;
 
+    public static boolean APPLIED = false;
+    public static boolean PASSED = true;
+
     @Override
     public boolean save(Club club) {
         try {

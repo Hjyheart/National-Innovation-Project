@@ -36,6 +36,9 @@ public class XianhuoApplicationTests {
 	@Autowired
 	private ActivityServiceImp activityServiceImp;
 
+	@Autowired
+	private MailServiceIml mailServiceIml;
+
 	@Test
 	public void contextLoads() throws IOException {
 
@@ -60,7 +63,7 @@ public class XianhuoApplicationTests {
 
 	@Test
 	public void teacherTest(){
-		Teacher teacher = new Teacher("hjy673773", "朱宏明", "软件工程", "15900582673", "");
+		Teacher teacher = new Teacher("hjy673773", "朱宏明", "软件工程", "15900582673");
 		assertEquals(false, teacherServiceImp.save(teacher));
 		assertEquals("朱宏明", teacherServiceImp.findByMName("朱宏明").getmName());
 		assertEquals("朱宏明", teacherServiceImp.findByLikeName("朱").iterator().next().getmName());
@@ -117,5 +120,11 @@ public class XianhuoApplicationTests {
 	public void clubAndActivityTest(){
 		Club club = clubServiceImp.findByMName("小红俱乐部");
 		assertEquals("编程一小时", club.getmActivities().iterator().next().getmName());
+	}
+
+	@Test
+	public void mailActivityTest(){
+		assertEquals("1452822", studentServiceImp.findByMId("1452822").getmSends().iterator().next().getmSender());
+		assertEquals("1452822", teacherServiceImp.findByMName("朱宏明").getmMail().iterator().next().getmSender());
 	}
 }

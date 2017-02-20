@@ -10,6 +10,7 @@ import xianhuo.entity.Club;
 import xianhuo.entity.Student;
 import xianhuo.entity.Teacher;
 import xianhuo.service.ClubServiceImp;
+import xianhuo.service.MailServiceIml;
 import xianhuo.service.StudentServiceImp;
 import xianhuo.service.TeacherServiceImp;
 
@@ -29,6 +30,9 @@ public class ClubCtrl {
 
     @Autowired
     private TeacherServiceImp teacherServiceImp;
+
+    @Autowired
+    private MailServiceIml mailServiceIml;
 
     /**
      * 返回俱乐部信息
@@ -67,6 +71,11 @@ public class ClubCtrl {
             Teacher teacher = teacherServiceImp.findByMName(teaName);
             if (student != null && teacher != null){
                 Club club1 = new Club(name, student, teacher, false);
+
+                if(!mailServiceIml.createMailForClub(club1)){
+                    return false;
+                }
+
                 clubServiceImp.save(club1);
                 return true;
             }

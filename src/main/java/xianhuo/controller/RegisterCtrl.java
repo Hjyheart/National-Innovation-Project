@@ -105,10 +105,16 @@ public class RegisterCtrl {
      */
     @RequestMapping(value = "/tea", method = RequestMethod.POST)
     @ResponseBody
-    public Integer registerForTeacher(@RequestParam(name = "NAME") String name, @RequestParam(name = "PASSWORD") String password){
+    public Integer registerForTeacher(@RequestParam(name = "NAME") String name,
+                                      @RequestParam(name = "PASSWORD") String password,
+                                      @RequestParam(name = "MAJOR") String major,
+                                      @RequestParam(name = "CONTACT") String contact){
         Teacher teacher = teacherServiceImp.findByMName(name);
 
         if (teacher == null){
+            Teacher teacher1 = new Teacher(password, name, major, contact);
+
+            teacherServiceImp.save(teacher1);
             return 1;
         }else{
             return 0;

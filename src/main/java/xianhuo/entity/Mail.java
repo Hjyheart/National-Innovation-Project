@@ -18,7 +18,7 @@ public class Mail {
     private Integer mType;
 
     @Column(nullable = false, name = "STATE")
-    private Boolean mState;
+    private boolean mState;
 
     @Column(nullable = false, name = "SENDER")
     private String mSender;
@@ -32,7 +32,9 @@ public class Mail {
     @Column(nullable = false, name = "DATE")
     private Date mDate;
 
-    public Mail(Integer mType, String mSender, String mReceiver, String mContent, Date mDate, Boolean mState) {
+    public Mail(){}
+
+    public Mail(Integer mType, String mSender, String mReceiver, String mContent, Date mDate, boolean mState) {
         this.mType = mType;
         this.mSender = mSender;
         this.mReceiver = mReceiver;
@@ -41,11 +43,11 @@ public class Mail {
         this.mState = mState;
     }
 
-    public Boolean getmState() {
+    public boolean getmState() {
         return mState;
     }
 
-    public void setmState(Boolean mState) {
+    public void setmState(boolean mState) {
         this.mState = mState;
     }
 

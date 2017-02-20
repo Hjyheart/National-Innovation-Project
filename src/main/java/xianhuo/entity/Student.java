@@ -32,8 +32,11 @@ public class Student {
     @Column(nullable = true, name = "HEADIMG")
     private String mHeadUrl;
 
-    @OneToMany(cascade = CascadeType.REMOVE)
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Mail> mMails = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Mail> mSends = new ArrayList<>();
 
     @OneToMany(mappedBy = "mStudent", cascade = CascadeType.ALL)
     private List<Comment> mComments = new ArrayList<>();
@@ -148,5 +151,13 @@ public class Student {
 
     public void setmHeadUrl(String mHeadUrl) {
         this.mHeadUrl = mHeadUrl;
+    }
+
+    public List<Mail> getmSends() {
+        return mSends;
+    }
+
+    public void setmSends(List<Mail> mSends) {
+        this.mSends = mSends;
     }
 }
