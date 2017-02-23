@@ -61,4 +61,9 @@ public class ClubServiceImp implements ClubService {
             return null;
         }
     }
+
+    @Override
+    public List<Club> findAll() {
+        return clubRep.findAll();
+    }
 }

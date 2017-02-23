@@ -18,5 +18,7 @@ public interface ClubService {
 
     List<Club> findByLikeName(String likeName);
 
+    List<Club> findAll();
+
 
 }

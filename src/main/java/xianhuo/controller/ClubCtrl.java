@@ -15,6 +15,7 @@ import xianhuo.service.*;
 import javax.transaction.Transactional;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 /**
  * Created by hongjiayong on 2017/2/19.
@@ -50,6 +51,17 @@ public class ClubCtrl {
         Club club = clubServiceImp.findByMId(id);
 
         return club;
+    }
+
+    /**
+     * 返回所有俱乐部
+     * @return
+     * 所有俱乐部
+     */
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Club> getClubList(){
+        return clubServiceImp.findAll();
     }
 
     /**

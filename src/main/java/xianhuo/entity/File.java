@@ -1,5 +1,7 @@
 package xianhuo.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 /**
@@ -25,5 +27,38 @@ public class File {
     public File(String mName, String mUrl) {
         this.mName = mName;
         this.mUrl = mUrl;
+    }
+
+    public Long getmId() {
+        return mId;
+    }
+
+    public void setmId(Long mId) {
+        this.mId = mId;
+    }
+
+    public String getmName() {
+        return mName;
+    }
+
+    public void setmName(String mName) {
+        this.mName = mName;
+    }
+
+    public String getmUrl() {
+        return mUrl;
+    }
+
+    public void setmUrl(String mUrl) {
+        this.mUrl = mUrl;
+    }
+
+    @JsonBackReference
+    public Club getmClub() {
+        return mClub;
+    }
+
+    public void setmClub(Club mClub) {
+        this.mClub = mClub;
     }
 }
