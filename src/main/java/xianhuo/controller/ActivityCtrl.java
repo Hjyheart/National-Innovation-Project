@@ -15,6 +15,7 @@ import xianhuo.service.*;
 import javax.transaction.Transactional;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 /**
  * Created by hongjiayong on 2017/2/19.
@@ -50,6 +51,17 @@ public class ActivityCtrl {
         Activity act = activityServiceImp.findByMId(id);
 
         return act;
+    }
+
+    /**
+     * 返回所有活动
+     * @return
+     * 活动列表
+     */
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Activity> getAll(){
+        return activityServiceImp.findAll();
     }
 
     /**

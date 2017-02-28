@@ -58,4 +58,9 @@ public class ActivityServiceImp implements ActivityService {
             return null;
         }
     }
+
+    @Override
+    public List<Activity> findAll() {
+        return activityRep.findAll();
+    }
 }

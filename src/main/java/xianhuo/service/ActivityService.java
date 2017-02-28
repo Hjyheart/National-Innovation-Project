@@ -18,4 +18,6 @@ public interface ActivityService {
 
     List<Activity> findByLikeName(String likeName);
 
+    List<Activity> findAll();
+
 }
